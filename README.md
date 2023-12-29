@@ -1,30 +1,21 @@
 # projet
-projet système d'exploitation
+Q1 : Quelles sont les structures de données à utiliser ?
+Rep1:
+Structures de données :
+On utilise des tableaux bidimensionnels pour les matrices B, C et A
+Pour le tampon T, on utilise un tableau ou une file(queue) dont la taille correspond aux résultats intermédiaires attendus.
 
-On veut effectuer en parallèle(En utilisant le modèle producteurs/consommateur) le produit de deux matrices: 
-B (n1* m1)  et C (n2 * m2) ⇒ la matrice résultante A=B*C ;
+Q2 : Comment allez-vous protéger l'accès à ces données ?
+Rep2:
+Protection de l'accès aux données :
+On utilise des verrous (mutex) pour contrôler l'accès concurrentiel aux données partagées, tels que les matrices et le tampon. Acquérez le verrou avant d'accéder aux données et libérez-le après utilisation.
+On utilise des sémaphores pour gérer l'accès au tampon. Les sémaphores régulent le nombre de places libres dans le tampon et le nombre d'éléments produits ou consommés.
+Q3 : Quels sont les risques ?
+Rep3:
+1.Conditions de course (Race conditions):Les threads producteurs pourraient essayer d'écrire dans le tampon T simultanément, entraînant des résultats imprévisibles.
+2.Deadlocks : Si la synchronisation entre les threads n'est pas gérée correctement, des situations de blocage mutuel (deadlocks) peuvent survenir, où les threads se bloquent en attendant que d'autres ressources soient libérées.
+3.Problèmes de performances : Une mauvaise gestion de la synchronisation peut entraîner des problèmes de performances en raison de l'attente excessive des threads pour accéder aux données partagées
 
-Les matrices sont remplis par des valeurs aléatoires
 
-Les résultats intermédiaires seront placés dans un tampon de taille “T[N]”.
 
-Chaque threads producteurs calcule une ligne de la matrice résultante A et range les résultat dans le tampon T
-
-Les threads consommateurs consomment l'élément T[y]  le place dans la matrice résultante A  au bon emplacement!
-
-q1: Quelles sont les structures de données à utiliser ?
-
-q2: Comment allez-vous protéger l'accès à ces données?
-
-q3- quels sont les risques?
-
-1-Cloner le projet github : projet  ; et le modifier le selon les exigences ci-dessus
-
-2- Pour chaque nouvelle idée créer une nouvelle branche; les autres étudiants peuvent améliorer l'idée en créant une nouvelle branche!
-
-3-Les premières réponses sont mieux notées!
-
-4-Bien gérer les éxceptions 
-
-5-Bien gérer les messages d'erreurs!
 
